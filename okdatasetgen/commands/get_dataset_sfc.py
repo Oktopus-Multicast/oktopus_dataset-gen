@@ -16,8 +16,8 @@ ESSENTIAL_SER = [1, 2]
 AUXILIARY_SER = [3, 4, 5, 6]
 
 
-class GetSfcDataset(Base):
-    """GetSfcDataset"""
+class GetDatasetSfc(Base):
+    """GetDatasetSfc"""
 
     def _create_sfc(self, topo_name, topo_path, in_dir, session_count,
             aux_ser_dis, ord_type, sfc_len,
@@ -84,13 +84,14 @@ class GetSfcDataset(Base):
       input_dir = self.options.get('-d', None)
       output_dir = self.options.get('-o', None)
       sessions_count = self.options.get('-s', None)
-      aux_ser_avail_p = self.options.get('--aux_ser_avail_p', None)
+      aux_ser_avail_p = float(self.options.get('--aux_ser_avail_p', None))
       ord_type = self.options.get('--ord_type', None)
-      sfc_len = self.options.get('<sfc_len>', None)
-      num_sessions_with_services = self.options.get('--sessions-with-services', None)
+      sfc_len = self.options.get('--sfc_len', None)
+      num_sessions_with_services = int(self.options.get('--sessions-with-services', None))
 
 
       self._create_sfc(topo_name, graph_path, input_dir, sessions_count,
           aux_ser_avail_p, ord_type,
           sfc_len,
           num_sessions_with_services, output_dir)
+      print('GetDatasetSfc Done!')

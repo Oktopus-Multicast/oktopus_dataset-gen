@@ -1,12 +1,12 @@
 """
-datasetgen
+okdatasetgen
 
 Usage:
-  datasetgen get_sfc -i <isp_topology> -t <topo_name> -d <dataset_dir> -o <output_dir> -s <session_count> --aux_ser_avail_p <aux_ser_avail_p> --ord_type <ord_type> --sfc_len <sfc_len> --sessions-with-services <num_sessions_with_services>
-  datasetgen get_dataset -i <isp_topology> -o <output_directory> -s <sessions_count> -r <receivers_per> -b <bandwidth_per>
-  datasetgen get_isp_dataset -i <isp_topology> -o <output_directory> --link=<link> --medium=<medium>
-  datasetgen -h | --help
-  datasetgen -v | --version
+  okdatasetgen get_dataset_sfc -i <isp_topology> -t <topo_name> -d <dataset_dir> -o <output_dir> -s <session_count> --aux_ser_avail_p <aux_ser_avail_p> --ord_type <ord_type> --sfc_len <sfc_len> --sessions-with-services <num_sessions_with_services>
+  okdatasetgen get_dataset -i <isp_topology> -o <output_directory> -s <sessions_count> -r <receivers_per> -b <bandwidth_per>
+  okdatasetgen get_isp -i <isp_topology> -o <output_directory> --link=<link> --medium=<medium>
+  okdatasetgen -h | --help
+  okdatasetgen -v | --version
 
 
 Arguments:
@@ -29,30 +29,25 @@ Options:
   -v --version  Displays script version
 
 Examples:
-  datasetgen hello
+  okdatasetgen hello
 
 Help:
   For help using this tool, please open an issue on the Github repository:
   https://cs-git-research.cs.surrey.sfu.ca/nsl/ISP/oktopus/dataset-gen
 """
- 
- 
+
+
 from inspect import getmembers, isclass
 from docopt import docopt
+from commands import CMD_CONSTANTS
  
 from . import __version__ as VERSION
- 
+
 def main():
-    """Main CLI entrypoint."""
-    import commands
+    """Main CLI entrypoint."""    
     options = docopt(__doc__, version=VERSION)
  
-    # Here we'll try to dynamically match the command the user is trying to run
-    # with a pre-defined command class we've already created.
     for cmd in options.keys():
-        if hasattr(commands, cmd) and options[cmd]:
-            module = getattr(commands, cmd)
-            commands = getmembers(module, isclass)
-            command = [command[1] for command in commands if command[0] != 'Base'][0]
-            command = command(options)
-            command.run()
+      if cmd in CMD_CONSTANTS and options[cmd]:
+        command = CMD_CONSTANTS[cmd](options)
+        command.run()

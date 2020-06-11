@@ -111,3 +111,4 @@ class GetIsp(Base):
                     del isp_graph.edge[n][neighbor][key]
 
         write_graphml(isp_graph, get_resources_file(isp_topology_path, output_directory))
+        print "GetIsp DONE!"

@@ -1,6 +1,6 @@
 """Packaging settings."""
 from setuptools import setup
-from datasetgen import __version__
+from okdatasetgen import __version__
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -14,14 +14,14 @@ setup(
     long_description = long_description,
     long_description_content_type="text/markdown",
     url = 'https://cs-git-research.cs.surrey.sfu.ca/nsl/ISP/oktopus/dataset-gen',
-    packages=['datasetgen'],
+    packages=['okdatasetgen'],
     classifiers = [
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
     ],
     entry_points = {
         'console_scripts': [
-            'datasetgen=datasetgen.cli:main',
+            'okdatasetgen=okdatasetgen.cli:main',
         ],
     }
 )
