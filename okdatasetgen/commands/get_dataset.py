@@ -65,7 +65,7 @@ class GetDataset(Base):
         # 25Mbps, 30Mbps, 50Mbps
         bandwidth_pdf = [(2000000, .21), (7200000, .57), (18000000, .22)]
         if bandwidth_per != 'variable':
-            bandwidth_pdf = [(float(bandwidth_per), 1)] 
+            bandwidth_pdf = [(int(bandwidth_per), 1)] 
         session_idx = 1
         for node in graph.nodes():
             node_id = int(node)

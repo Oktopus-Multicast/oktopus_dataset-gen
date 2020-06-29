@@ -29,7 +29,10 @@ Options:
   -v --version  Displays script version
 
 Examples:
-  okdatasetgen hello
+  okdatasetgen get_isp -i data/topology_zoo/AttMpls.graphml -o example/ --link=10000 --medium='fiber'
+  okdatasetgen get_dataset -i example/AttMpls_resources.graphml -o example/ -s 10 -r 0.1 -b 2000000
+  okdatasetgen get_dataset_sfc -i example/AttMpls_resources.graphml -t AttMpls -d example/ -o example/ -s 10 --aux_ser_avail_p 0.25 --ord_type 1 --sfc_len 5 --sessions-with-services 10
+
 
 Help:
   For help using this tool, please open an issue on the Github repository:
