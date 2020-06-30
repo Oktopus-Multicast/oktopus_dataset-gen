@@ -36,7 +36,7 @@ Examples:
 
 Help:
   For help using this tool, please open an issue on the Github repository:
-  https://cs-git-research.cs.surrey.sfu.ca/nsl/ISP/oktopus/dataset-gen
+  https://github.com/Oktopus-Multicast/oktopus_dataset-gen.git
 """
 
 
