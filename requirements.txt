@@ -1,5 +1,2 @@
-# Oktopus pakages
--e git://github.com/Oktopus-Multicast/oktopus_framework.git#egg=oktopus_framework
-
 docopt==0.6.2
 vincenty==0.1.4

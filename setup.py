@@ -20,7 +20,9 @@ setup(
     long_description_content_type='text/markdown',
     url = 'https://github.com/Oktopus-Multicast/oktopus_dataset-gen.git',
     packages=['okdatasetgen'],
-    install_requires=required,
+    install_requires=[required, 
+                      'oktopus==0.1'],
+    dependency_links=['https://github.com/Oktopus-Multicast/oktopus_framework.git#egg=oktopus-0.1'],
     classifiers = [
         'License :: OSI Approved :: MIT License'
     ],
