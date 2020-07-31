@@ -21,7 +21,7 @@ setup(
     url = 'https://github.com/Oktopus-Multicast/oktopus_dataset-gen.git',
     packages=['okdatasetgen'],
     install_requires=[required, 
-                      'oktopus==0.1'],
+                      'oktopus>=0.1'],
     dependency_links=['https://github.com/Oktopus-Multicast/oktopus_framework.git#egg=oktopus-0.1'],
     classifiers = [
         'License :: OSI Approved :: MIT License'
